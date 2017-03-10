@@ -19,4 +19,8 @@ module.exports = (gulp, config, tasks) => {
     require('./lib/js')(gulp, config, tasks);
   }
 
+  if (config.assets.enabled) {
+    require('./lib/cleanPipe')(gulp, config, tasks);
+  }
+
 };
