@@ -1,8 +1,13 @@
 # joes-gulp-tasks - An Accessible Gulp 4 Package 
 
+
 ## Description
 Writing your own gulp pipelines isn't always easy. Wouldn't be nice to automate all your front-end develop tasks with a straight forward configuration file? Gulp task management that is flexible, but accessible. This package is an attempt to bring powerful gulp tasks to any project, quickly and hopefully painlessly.
  
+This module is currently under active development. If you would like to contribute, feel free to open issues and create pull requests on [GitHub](https://github.com/joekarasek/joes-gulp-tasks). Thanks!
+
+More coming soon... 
+
 ## Features
 
 Here are some of the features this package includes:
@@ -10,7 +15,7 @@ Here are some of the features this package includes:
 * BrowserSync - This tool is great for development! Serve your site locally, and keep pace with code changes without have to refresh!
 * Sass/Scss Compiling - A collection of tools to glob, compile, add browser compatibility, and compress your stylesheets
 * Javascript Compiling - Babel lets you write the Javascript you want, including ES6. Uglify? Minify? No problem!
-* HTML Templates - Twig.js is a great Javascript implementation of Twig, a powerful but easy to use templating language that brings sanity to your html.
+* HTML Templates - Twig.js is a great Javascript implementation of Twig, a powerful but easy to use templating language that brings sanity to your html. Fans of Drupal 8 rejoice!
 * Lint/Validation - Lint your stylesheets, javascript, and html again a wide range of style guides.
 * SassDoc/DocumentationJS - Good code is commented. Reward good code with beautifully rendered documentation. Impress your team, your client, and your boss.
 
