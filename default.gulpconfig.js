@@ -1,7 +1,7 @@
 module.exports = {
   browserSync: {
     enabled: true,
-    port: 3050,
+    port: 3030,
     watchFiles: [],
     baseDir: 'build/',
     startPath: '/',
@@ -18,22 +18,24 @@ module.exports = {
     source: [
       'src/scss/styles.scss',
     ],
-    includePaths: [
-      'src/canvas/css/',
-    ],
+    includePaths: [],
     dest: 'build/css/',
+    watchPaths: [
+      'src/scss/**/*.scss'
+    ],
+    // Lint css using .stylelintrc.js settings
     lint: true,
     // outputStyles maybe 'expanded', 'compressed', 'nested'
     outputStyle: 'expanded',
-    sourceMap: false,
+    sourceMapEmbed: true,
     sourceComments: false,
     autoPrefixerBrowsers: [
       'last 2 versions',
       'IE >= 10',
     ],
-    flattenOutput: true,
+    flattenOutput: false,
     sassdoc: {
-      enabled: false,
+      enabled: true,
       dest: 'sassdoc',
       verbose: false,
       exclude: [],
@@ -46,22 +48,18 @@ module.exports = {
     destFileName: 'scripts.js',
     babel: false,
     uglify: false,
-    sourceMap: false,
-    includePaths: [
-      'src/canvas/js/jquery.js',
-      'src/canvas/js/jquery.gmap.js',
-      'src/canvas/js/plugins.js',
-      'src/canvas/js/functions.js',
-      'src/canvas/js/lodash.js',
-    ],
+    sourceMapEmbed: true,
+    includePaths: [],
+    // Lint javascript using .eslintrc.js settings
     eslint: {
       enabled: true,
       sources: [
         'src/js/**/*.js',
       ],
     },
+    // Generate documentation from inline js comments using /** ... */  Note: This package can take a long time to compile
     documentationJs: {
-      enabled: true,
+      enabled: false,
       sources: [
         'src/js/**/*.js',
       ],
@@ -72,18 +70,22 @@ module.exports = {
   },
   html: {
     enabled: true,
+    // Source html files. If using Twig.js, these will be .twig files
     sources: [
-      'src/index.twig',
+      'src/index.html',
     ],
     dest: 'build/',
-    lint: false,
+    // Html Validator
+    lint: true,
+    // Twig.js, Javascript implementation of Twig
     twig: {
-      enabled: true,
+      enabled: false,
+      // Directory of pratials
       baseDir: 'src/templates/',
     },
   },
   assets: {
-    //clean pipe, no compiling
+    //clean pipe, no compiling, use this move images and other static content from src to build
     enabled: true,
     sources: [
       'src/assets/**/*.*',
