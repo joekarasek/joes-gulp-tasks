@@ -18,18 +18,11 @@ Note: If you have previously install gulp using `npm install --global gulp`, you
 
 ## Getting Started/Installation
 
-1. Install the package using npm.
-
-```
-npm install joe-gulp-tasks --save-dev
-```
+1. Install the package using npm. `npm install joe-gulp-tasks --save-dev`
 
 2. Open the newly created `./gulpconfig.js` file and set the configurations to match the directory structure of your project. Toggle the settings as you see fit.
 
-3. 
-```
-gulp
-```
+3. `gulp`
 
 4. Enjoy!
    
@@ -39,6 +32,10 @@ gulp
 gulp
 ```
 
+This will start browserSync, do a single compile, and start your watches. Happy coding!
+
+### More Usage
+
 This package will auto-generate a number of tasks based on the setup of your `./gulpconfig.js`. These tasks are categorized as either 'clean', 'compile', 'validate', 'watch', or 'default'. All currently active tasks within a category can be run using `gulp masterTaskName`, for example...
 
 Run all clean tasks
@@ -47,6 +44,7 @@ gulp clean
 ```
 
 ...or...
+
 Run all compile tasks
 ```
 gulp compile
