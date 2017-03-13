@@ -4,7 +4,8 @@
   "description": "Some Gulp tasks by Joe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "([ -f ./../../gulpconfig.js ] && echo 'gulpconfig already exists' || cp ./default.gulpconfig.js ./../../gulpconfig.js) && ([ -f ./../../gulpfile.js ] && echo 'gulpfile already exists' || cp ./starter.gulpfile.js ./../../gulpfile.js) && ([ -f ./../../.eslintrc.js ] && echo '.eslintrc.js already exists' || cp ./.eslintrc.js ./../../.eslintrc.js) && ([ -f ./../../.stylelintrc.js ] && echo '.stylelintrc.js already exists' || cp ./.stylelintrc.js ./../../.stylelintrc.js)"
   },
   "repository": {
     "type": "git",
