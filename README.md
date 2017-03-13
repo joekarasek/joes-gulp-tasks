@@ -8,6 +8,56 @@ This module is currently under active development. If you would like to contribu
 
 More coming soon... 
 
+## Requirements
+
+* [Node.js](https://nodejs.org/)
+* [npm](https://www.npmjs.com/)
+* [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+
+Note: If you have previously install gulp using `npm install --global gulp`, you will need to uninstall and install the Gulp Cli. See [GulpJs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) for more information.
+
+## Getting Started/Installation
+
+1. Install the package using npm.
+
+```
+npm install joe-gulp-tasks --save-dev
+```
+
+2. Open the newly created `./gulpconfig.js` file and set the configurations to match the directory structure of your project. Toggle the settings as you see fit.
+
+3. 
+```
+gulp
+```
+
+4. Enjoy!
+   
+## Usage
+
+```
+gulp
+```
+
+This package will auto-generate a number of tasks based on the setup of your `./gulpconfig.js`. These tasks are categorized as either 'clean', 'compile', 'validate', 'watch', or 'default'. All currently active tasks within a category can be run using `gulp masterTaskName`, for example...
+
+Run all clean tasks
+```
+gulp clean
+```
+
+...or...
+Run all compile tasks
+```
+gulp compile
+```
+
+To list out all current tasks and to view their relations, simply run...
+
+```
+gulp --tasks
+```
+
 ## Features
 
 Here are some of the features this package includes:
@@ -19,184 +69,19 @@ Here are some of the features this package includes:
 * Lint/Validation - Lint your stylesheets, javascript, and html again a wide range of style guides.
 * SassDoc/DocumentationJS - Good code is commented. Reward good code with beautifully rendered documentation. Impress your team, your client, and your boss.
 
-## Requirements
-
-Global
-* [Node.js](https://nodejs.org/)
-* [npm](https://www.npmjs.com/)
-Local - See Notes on Using Gulp 4 Locally
-* [Gulp 4](https://github.com/gulpjs/gulp/blob/4.0/docs/README.md)
-
-## Getting Started/Installation
-
-### Core setup 
-
-1. Install the package using npm.
-
-```
-npm install joe-gulp-tasks --save-dev
-```
-
-2. Create a file called gulpfile.js
-
-```javascript
-function hello() {
-    "world";
-}
-```
-
-3. Create a file called gulpconfig.js
-
-```javascript
-module.exports = {
-  browserSync: {
-    enabled: true,
-    port: 3050,
-    watchFiles: [],
-    baseDir: 'build/',
-    startPath: '/',
-    openBrowserAtStart: true,
-    // requires above to be true; allows non-default browser to open
-    browser: [
-      'Google Chrome',
-    ],
-    reloadDelay: 50,
-    reloadDebounce: 750,
-  },
-  css: {
-    enabled: true,
-    source: [
-      'src/scss/**/*.scss',
-    ],
-    includePaths: [
-      '/src/vendor/**/*.scss',
-    ],
-    dest: 'build/css/',
-    lint: true,
-    // outputStyles maybe 'expanded', 'compressed', 'nested'
-    outputStyle: 'expanded',
-    sourceMap: false,
-    sourceComments: false,
-    autoPrefixerBrowsers: [
-      'last 2 versions',
-      'IE >= 10',
-    ],
-    flattenOutput: true,
-    sassdoc: {
-      enabled: true,
-      dest: 'sassdoc',
-      verbose: false,
-      exclude: [],
-    },
-  },
-  js: {
-    enabled: true,
-    source: 'src/js/*.js',
-    dest: 'build/js/',
-    destFileName: 'scripts.js',
-    babel: false,
-    uglify: false,
-    sourceMap: false,
-    includePaths: [
-      'src/canvas/js/**/*.js',
-    ],
-    eslint: {
-      enabled: true,
-      sources: [
-        'src/js/**/*.js',
-        'gulpfile.js',
-      ],
-    },
-    documentationJs: {
-      enabled: true,
-      sources: [
-        'src/js/**/*.js',
-      ],
-      dest: 'jsdoc',
-      // Either 'html', 'md', or 'json'
-      format: 'html',
-    },
-  },
-  html: {
-    enabled: true,
-    sources: [
-      'src/index.twig',
-      'src/stylesheet.twig',
-      'src/about.twig',
-    ],
-    dest: 'build/',
-    lint: true,
-    twig: {
-      enabled: true,
-      baseDir: 'src/templates'
-    },
-  },
-  assets: {
-    pipelines: [
-      {
-        source: 'src/',
-        dest: '',
-      }
-    ],
-  }
-};
-```
-
-4. Finally, add the following scripts to your pacakge.json. (Optional, Notes on Using Gulp 4 Locally). 
-
-```javacript
-"scripts": {
-    "gulp": "gulp",
-    "gulp:tasks": "gulp --tasks"
-}
-```
-
 ### Linting
 
-To add linting for stylesheets, you will need at add a `.stylelintrc.js` to your project with a defined set of rules. Not everyone agrees on the best way to write javascript, and the styleguide you pick should match the project you are on (a styleguide for es5 is not going to work well with es6), but here are a few suggestions...
+This package will auto-generate (if they are not already present) two files with default configurations for linting.
 
-* airbnb 
+#### EsLint
 
-### Notes on Using Gulp 4 Locally
+Configuration for linting javascript can be found in the `.eslintrc.js` file. This package comes with a default `.eslintrc.js` file configured to use the [airBnB's javascript styleguide](https://github.com/airbnb/javascript).
 
-## Usage
+#### StyleLint
 
-Compile resources, launch browserSync, and setup watches for changes in your working directories.
-```
-npm run gulp
-```
+Configuration for linting css/scss/sass can be found in the `.stylelintrc.js` file. This package also comes with a default `.stylelintrc.js` file configured to use the [airBnB's css styleguide](https://github.com/airbnb/css).
 
-List Tasks generated by config file:
-```
-npm run gulp:tasks
-```
-
-Compile all resources:
-```
-npm run gulp compile
-```
-
-Clean all resources:
-```
-npm run gulp clean
-```
-
-Start all watches:
-```
-npm run gulp watch
-```
-
-Validate/Lint all resources:
-```
-npm run gulp validate
-```
-
-Any specific Gulp task:
-```
-npm run gulp *name-of-task*
-```
-
-## Sass/Scss and Sass Documentation
+### Sass/Scss and Sass Documentation
 
 Sass/Scss documentation is handled by Sassdoc. See [sassdoc](http://sassdoc.com/) docs at `./sassdoc` (at http://localhost:3002/sassdoc after `npm start`)
 
@@ -207,7 +92,7 @@ Build Sassdocs:
 npm run gulp compile:sassdoc
 ```
 
-## JS and JS Documentation
+### JS and JS Documentation
 
 Javascript documentation is handled by DocumentationJS. See [documenationJS](http://documentation.js.org/) docs at `./jsdoc` (at http://localhost:3002/jsdoc after `npm start`)
 
@@ -219,10 +104,24 @@ npm run gulp compile:jsdocs
 ```
 
 
-## Troubleshooting
+### Useful Links
 
-Delete `node_modules` and re-install:
+Coming soon...
+
+### Troubleshooting
+
+1. Delete `node_modules` and re-install:
 ```
 rm -rf node_modules
 npm install
 ```
+
+2. Errors involving 'glob patterns' are usually do to urls in the `gulpconfig.js` file not pointing to actually directories or files
+
+3. Running `gulp -v` should return
+```
+[21:05:35] CLI version 1.2.2
+[21:05:35] Local version 4.0.0-alpha.2
+```
+
+If it does not, then you will need to uninstall gulp globally and install the gulp-cli. See [gulpjs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
