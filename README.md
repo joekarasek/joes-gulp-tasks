@@ -18,14 +18,23 @@ Note: If you have previously install gulp using `npm install --global gulp`, you
 
 ## Getting Started/Installation
 
-1. Install the package using npm. `npm install joe-gulp-tasks --save-dev`
+0. Install gulp 4 - `npm install gulpjs/gulp.git#4.0 --save-dev`
+
+1. Install Joe's Gulp Tasks - `npm install joe-gulp-tasks --save-dev`
 
 2. Open the newly created `./gulpconfig.js` file and set the configurations to match the directory structure of your project. Toggle the settings as you see fit.
 
 3. `gulp`
 
 4. Enjoy!
-   
+
+Installation will add the following files to your root directory (but not override them if they are already there).
+
+* gulpfile.js - This is the main file that Gulp will use. Add custom tasks here.
+* gulpconfig.js - Set this up config file up. Tell Joe's Gulp Tasks what to do, where to find things, and where to put them.
+* .eslintrc.js - Linting configuration for eslint (Javascript). Default is set to the airBnB styleguide.
+* .stylelintrc.js - Linting configuration for stylelint (Css). Default is set to the airBnB styleguide.
+
 ## Usage
 
 ```
@@ -87,7 +96,7 @@ Add more sassdoc annotations like `/// @param` by seeing [docs here](http://sass
 
 Build Sassdocs:
 ```
-npm run gulp compile:sassdoc
+gulp compile:sassdoc
 ```
 
 ### JS and JS Documentation
@@ -98,7 +107,7 @@ Add more jsdoc annotations like `/** @param */` by seeing [docs here](https://gi
 
 Build JSdocs:
 ```
-npm run gulp compile:jsdocs
+gulp compile:jsdocs
 ```
 
 
@@ -116,7 +125,7 @@ npm install
 
 2. Errors involving 'glob patterns' are usually do to urls in the `gulpconfig.js` file not pointing to actually directories or files
 
-3. Running `gulp -v` should return
+3. Running `gulp -v` should return something like ...
 ```
 [21:05:35] CLI version 1.2.2
 [21:05:35] Local version 4.0.0-alpha.2
