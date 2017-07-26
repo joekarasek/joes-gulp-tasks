@@ -1,6 +1,6 @@
 {
   "name": "joes-gulp-tasks",
-  "version": "0.4.8",
+  "version": "0.5.0-0",
   "description": "Some Gulp tasks by Joe",
   "main": "index.js",
   "scripts": {
